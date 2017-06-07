@@ -27,25 +27,17 @@ __version__ = '1.0.0'
 __all__ = ['f']
 
 
-class F:
+def _render_args(args):
+    return [next(iter(a)) if isinstance(a, set) else a for a in args]
+
+
+class F: 
 
     def __call__(self, *args):
-        arr = []
-        for a in args:
-            if isinstance(a, set):
-                arr.append(next(iter(a)))
-            else:
-                arr.append(a)
-        return tuple(arr)
+        return tuple(_render_args(args))
 
     def __getitem__(self, args):
-        arr = []
-        for a in args:
-            if isinstance(a, set):
-                arr.append(next(iter(a)))
-            else:
-                arr.append(a)
-        return arr
+        return _render_args(args)
 
 
 f = F()
