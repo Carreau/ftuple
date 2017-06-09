@@ -3,8 +3,9 @@ F-Tuple
 
 F-strings are fabulous, why can't we make the same with Tuple and lists ?
 
-Now you can::
+Now you can:
 
+.. code:: python
 
     In [1]: from ftuple import f
 
